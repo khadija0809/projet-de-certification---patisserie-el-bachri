@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}E-mail de réinitialisation du mot de passe envoyé{% endblock %}
+
+{% block content %}
+    <p>
+        <strong>
+        Si un compte correspondant à votre adresse e-mail, un e-mail vous sera envoyé contenant un lien que vous pouvez utiliser pour réinitialiser votre mot de passe.
+        </strong>
+    </p>
+    <p> <strong>Ce lien expirera dans 1 heure.</strong> </p>
+    <p><strong>Si vous ne recevez pas d'e-mail, veuillez vérifier votre dossier spam </strong><br/></p>
+    <a href="{{ path('app_forgot_password_request') }}" class="btn btn-info btn-block mt-3">Ressayer à nouveau</a>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block carousel %}{% endblock %}
+
+{% block content %}
+  <!-- Three columns of text below the carousel -->
+ <h2>Nos meilleur créations</h2>
+ <p>Découvrez les pâtisseries les plus commander</p>
+  <div class="row">
+    {% for product in products %}
+    <div class="col-md-3">
+        {% include 'product/single_product.html.twig' %}
+    </div>
+    {% endfor %}
+</div><!-- /.row -->
+
+
+<!-- START THE FEATURETTES -->
+
+<hr class="featurette-divider">
+
+<div class="row featurette">
+    <div class="col-md-7">
+        <h4 class="featurette-heading">DES MATIÈRES PREMIÈRES DE QUALITÉ <span class="text-muted">SOIGNEUSEMENT SÉLECTIONNÉES</span></h4>
+        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    </div>
+    <div class="col-md-5">
+        <img src="{{ asset('assets/img/premiere.jpg') }}" alt="gateaux patisserie elbachri">
+
+    </div>
+</div>
+
+<hr class="featurette-divider">
+
+<div class="row featurette">
+    <div class="col-md-7 order-md-2">
+        <h4 class="featurette-heading">DES PRIX RAISONNABLES </h4>
+        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    </div>
+    <div class="col-md-5 order-md-1">
+        <img src="{{ asset('assets/img/deuxieme.jpg') }}" class="img-fluid" alt="gateaux patisserie elbachri">
+
+    </div>
+</div>
+
+<hr class="featurette-divider">
+{# 
+<div class="row featurette">
+    <div class="col-md-7">
+        <h4 class="featurette-heading">PLUS DE GOÛT, MOINS DE SUCRE</h4>
+        {# <p class="lead">Nous cherchons avant tout à vous proposer des produits de haute qualité, peu sucrés et 100% maison. Nous pensons que la Pâtisserie ne doit pas être un produit de luxe mais doit rester au contraire accessible à tous. C’est pour cela que pour chacune de nos recettes nous recherchons en permanence le meilleur équilibre entre le goût, la qualité de matières premières et un prix accessible au plus grand nombre.</p> #}
+    {# </div>
+    <div class="col-md-5">
+        <img src="{{ asset('assets/img/troisieme.jpg')}}" alt="gateaux patisserie elbachri" height="350px">
+    </div>
+</div> #}
+{# 
+<hr class="featurette-divider"> #}
+
+<!-- /END THE FEATURETTES -->
+{% endblock %}

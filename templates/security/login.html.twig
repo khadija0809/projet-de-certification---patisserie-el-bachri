@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se connecter - Pâtisserie el bachri{% endblock %}
+
+{% block content %}
+    <form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+<section class="vh-100" style="background:#e2ced2;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="/images/gateaux/login_g.jpg" alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;"/>
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+  
+                  <form>
+  
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                        <img src="{{ asset('images/logo_khadija.png') }}" alt="logo Pâtisserie" class="w-5" height="50px" >
+                        <span class="h1 fw-bold mb-0 ">Pâtisserie El bachri</span>
+                    </div>
+  
+                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Connectez-vous</h5>
+  
+                    <div class="form-outline mb-4">
+                      <input type="email"  name="email" id="form2Example17" class="form-control form-control-lg" />
+                      <label class="form-label" for="form2Example17">Adresse email</label>
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <input type="password" name="password" id="form2Example27" class="form-control form-control-lg" />
+                      <label class="form-label" for="form2Example27">Mot de passe</label>
+                    </div>
+                    <div class="pt-1 mb-4">
+                      <button class="btn btn-info btn-lg btn-block" type="submit">Se connecter</button>
+                    </div>
+
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    <a class="small text-muted" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié</a>
+
+                    <p class="mb-5 pb-lg-2" style="color: #b168a7;">Vous n'avez pas de compte ?<a href="{{ path ('register') }}" style="color: #393f81;">Inscrivez-vous</a></p>
+
+                  </form>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endblock %}

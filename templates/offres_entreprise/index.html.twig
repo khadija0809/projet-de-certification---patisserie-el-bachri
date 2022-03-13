@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Offres Entreprises - pâtisserie el bachri{% endblock %}
+
+{% block content %}
+ <!-- Three columns of text below the carousel -->
+ <h2 class="text-center">OFFRES ENTREPRISES</h2>
+ <p class="text-center"><strong> Pâtisserie el bachri vous accompagne au quotidien dans toutes vos évenements pour tous vos besoin en pâtisserie <br>
+    Nous sommes toujours à votre services pour satisfait vos besoin</strong>
+</p>
+ 
+
+
+
+<!-- START THE FEATURETTES -->
+
+<hr class="featurette-divider">
+
+<div class="row featurette">
+    <div class="col-md-7">
+        <h2 class="featurette-heading">LIVRAISON SUR TOUTE LA VILLE DE MARRAKECH ET SES REGIONS</h2>
+        <p class="lead">Pour toute vos besoin de la pâtisserie , vous êtes pas obligé de ce déplacer en livre jusqu'a chez vous pendant toute la semaine</p>
+        <p><a href="{{ path('products') }}"><button type="button" class="btn btn-dark">Commander</button></a></p>
+    </div>
+    <div class="col-md-5">
+        <img src="{{ asset('assets/img/livraison.jpg') }}" alt="gateaux patisserie elbachri" height="550px">
+
+    </div>
+    
+    
+</div>
+
+<hr class="featurette-divider">
+
+<div class="row featurette">
+    <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">OFFRES SPÉCIFIQUES POUR LES CAFÉS HÔTELS RESTAURANTS </h2>
+        <p class="lead">Vous avez besoin de pâtisserie, Jus, Glaces pour votre activité ? N'hésitez pas à nous contacter </p>
+        <p><a href="{{ path('contact') }}"><button type="button" class="btn btn-dark">Nous écrire</button></a></p>
+
+    </div>
+    <div class="col-md-5 order-md-1">
+        <img src="{{ asset('assets/img/resto.jpg') }}" class="img-fluid" alt="gateaux patisserie elbachri" height="550px">
+
+    </div>
+</div>
+
+<hr class="featurette-divider">
+ 
+<div class="row featurette">
+    <div class="col-md-7">
+        <h4 class="featurette-heading">POUR DES BESOINS PARTICULIERES, CONTACTEZ NOUS PAR TELEPHONE OU PAR MAIL</h4>
+        <p class="lead">Merci de nous contactez par mail ou téléphone par toute vos besoins, </p>
+        <p><a href="{{ path('contact') }}"><button type="button" class="btn btn-dark">Nous écrire</button></a></p>
+
+     </div>
+    <div class="col-md-5">
+        <img src="{{ asset('assets/img/besoin_pa.jpg')}}" alt="gateaux patisserie elbachri" height="550px" >
+    </div>
+</div>
+
+<hr class="featurette-divider"> 
+
+<!-- /END THE FEATURETTES -->
+{% endblock %}

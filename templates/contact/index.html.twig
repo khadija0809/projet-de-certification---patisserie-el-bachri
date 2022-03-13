@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact - Pâtisserie el bachri{% endblock %}
+
+{% block content %}
+<div class="container-fluid"  style="background:#e2ced2 ">
+    <h1 class="text-center" >Contactez nous pour toutes vos questions</h1>
+    <div class="row">
+        <div class="col-md-5">
+            {{ form(formulaire) }}
+        </div>
+        <div class="col-md-6 offset-md-1 mt-4">
+            <h5 class="mt-5"> N'hésitez pas à nous contacter pour toute question concernant votre PATISSERIE ELBACHRI !</h5><br>
+            <hr>
+
+            <h6>Email : patisserieelbachri.com</h6> <br>
+            <hr>
+            <h6>Addresse : 18 Rue de hassen 2, 40000 marrakech</h6><br>
+            <hr>
+            <h6>Phone : 09 80 53 79 53 </h6><br>
+            <hr>
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

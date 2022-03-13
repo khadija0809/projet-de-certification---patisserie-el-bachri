@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page introuvable - Pâtisserie el bachri{% endblock %}
+
+{% block content %}
+<div class="block-small">
+    <img src="/images/gateaux/404.png" alt="erreur" >
+    <h2>Page introuvable</h2>
+    <p>Nous n'avons pas trouvé de résultat pour cette page. Vérifiez que l'URL du site est correcte.</p>
+         
+     <a href="{{ path('contact') }}" class="btn btn-info">Contactez le propriétaire du site</a>    
+     <a href="{{ path('home') }}" class="btn btn-info">retourne à la page d'accueil</a>
+
+{% endblock %}
