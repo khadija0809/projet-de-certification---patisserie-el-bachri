@@ -6,31 +6,36 @@
 {% block title %}Paimment de ma commande pâtisserie - el bachri{% endblock %}
 
 {% block content %}
-<h2> Mon récapilatif</h2>
-<p>Merci de vérifiez vos informations avant de payer</p>
+
+<div class="container-fluid p-3 "style="background:#e2ced2 " >
+    <strong><p class="text-center ">Merci de vérifiez vos informations avant de payer</p></strong>
 <hr>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-5">
         <strong>Mon adresse de livraison</strong><br/>
         <div class="form-check mt-4">
              {{ delivery|raw }}
         </div>
+      
        <hr>
+     
        <strong>Mon transporteur</strong><br/>
-       <div class="form-check">
-       {{ carrier.name }}<br/>
+       <div class="form-check mt-4">
+           {{ carrier.name }}<br/>
        {{ carrier.description }}<br/>
        {{ (carrier.price / 100) |number_format(2, ',','.' )  }} dh
-       </div>
+      
+     </div>
+    </div>
+       
      
 
 
-    </div>
+    
     <div class="col-md-6">
         <div class="text-center">
             <b>Ma commande</b><br/>
         </div>
-       
         <div class="order-summary">
             {% set total = null %}
              {% for key,product in cart %}
@@ -38,7 +43,7 @@
                 <div class="col-2">
                     <img src="/images/product/{{ product.product.illustration }}" alt="{{ product.product.name }}"height='45px'>
                 </div>
-                <div class="col-8 my-auto">
+                <div class="col-6 my-auto">
                     {{ product.product.name }}<br/>
                     <small>
                         {{ product.product.subtitle }}
@@ -46,7 +51,7 @@
                          x {{ product.quantity }}
                     </small>
                 </div>
-                <div class="col-2 my-auto"> 
+                <div class="col-4 my-auto"> 
                     {{ ((product.product.price * product.quantity) /100 ) | number_format(2, ',','.' ) }} dh
 
                 </div>
@@ -60,7 +65,7 @@
         <hr>
         <strong>Total : </strong>{{ ((total /100 ) + (carrier.price / 100 ))|number_format(2, ',','.' ) }} dh
        
-        <a class="btn btn-success btn-block mt-3" id="checkout-button">Payer | {{ ((total /100 ) + (carrier.price / 100 ))|number_format(2, ',','.' ) }} dh</a>
+        <a class="btn btn-dark btn-block mt-3 " id="checkout-button">Payer | {{ ((total /100 ) + (carrier.price / 100 ))|number_format(2, ',','.' ) }} dh</a>
 
     </div>
 
@@ -100,4 +105,6 @@
                 });
         });
     </script>
+</div>
+
 {%  endblock %}

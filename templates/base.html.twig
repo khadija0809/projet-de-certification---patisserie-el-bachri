@@ -39,13 +39,13 @@
     </div>
 {% endfor %}
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background:#e2ced2 ">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top  " style="background:#e2ced2 ">
         <a class="navbar-brand" href="{{ path('home') }}">Pâtisserie El Bachri</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto ">
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ path('products') }}">Nos produits <span class="sr-only">(current)</span></a>
                 </li>
@@ -77,7 +77,7 @@
     
 </header>
 
-<main role="main">
+<main role="main" class="pb-4">
     {% if block('carousel') is defined %}
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -90,9 +90,9 @@
             <div class="carousel-item {% if key == 0 %}active{% endif %}" style="background: url('/images/product/{{ header.illustration }}');background-size:cover;">
                 <div class="container">
                     <div class="carousel-caption text-left">
-                        <h1>{{ header.title }}</h1>
-                        <p>{{ header.content }}</p>
-                        <p><a class="btn btn-lg btn-info" href="{{ header.btnUrl }}" role="button">{{ header.btnTitle }}</a></p>
+                        <h1 class="text-dark">{{ header.title }}</h1>
+                        {# <p class="text-dark">{{ header.content }}</p> #}
+                        <p ><a class="btn btn-lg btn-dark" href="{{ header.btnUrl }}" role="button">{{ header.btnTitle }}</a></p>
                     </div>
                 </div>
             </div>
