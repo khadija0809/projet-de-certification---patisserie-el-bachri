@@ -22,7 +22,7 @@ class StripeController extends AbstractController
     public function index(EntityManagerInterface $entityManager, Cart $cart, $reference)
     {
         $products_for_stripe = [];
-        $YOUR_DOMAIN = 'http://127.0.0.1:8000';
+        $YOUR_DOMAIN = 'https://www.patisserie-elbachri.com/';
 
        $order = $entityManager->getRepository(Order::class)->findOneByReference($reference);
         
