@@ -52,8 +52,8 @@
       </tbody>
     </table>
     <div class="text-right mb-5">
-        <b>Nombre de produit :</b>{{ cart|length}}<br/>
-        <b> de mon panier :</b>{{ (total /100 ) | number_format(2, ',','.' ) }} dh
+        <strong>Nombre de produit :</strong>{{ cart|length}}<br/>
+        <strong> Total de mon panier :</strong>{{ (total /100 ) | number_format(2, ',','.' ) }} dh
         <a href="{{ path('order') }}" class="btn btn-dark btn-block mt-3">Valider mon panier</a>
 
     </div>
