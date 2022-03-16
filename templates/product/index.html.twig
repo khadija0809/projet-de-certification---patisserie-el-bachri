@@ -1,71 +1,52 @@
 {% extends 'base.html.twig' %} {% block title %}Nos produits - Pâtisserie El
 bachri{% endblock %} {% block content %}
 <div class="row">
-  <div class="col-md-3">
-    <h3>Filtrer</h3>
-    {{ form(form) }}
-  </div>
-  <div class="col-md-9">
-    <h3>Nos produits</h3>
-    <div class="row product-container">
-      {% for product in products %}
-      <div class="col-md-4">
-        {% include 'product/single_product.html.twig' %}
-      </div>
-      {% else %}
-      <!-- Button trigger modal -->
-      <script>
-        window.onload = function () {
-          document.getElementById("selfclick").click();
-        };
-      </script>
 
-      <button
-        style="display: none"
-        id="selfclick"
-        type="button"
-        class="btn btn-primary"
-        data-toggle="modal"
-        data-target="#exampleModalCenter"
-      >
-        Launch demo modal
+  <script>
+    window.onload = function () {
+      document.getElementById("clickfiltre").onclick();
+    };
+  </script>
+  <div class="d-flex">
+
+    <div class=" p-2"><button id="clickfiltre" type="button" class="btn btn-light" data-toggle="modal"
+        data-target="#exampleModalCenter"><img src="{{ asset('assets/img/filtre.png') }}" height="22px"
+          alt="ajouté un produit">
+
       </button>
 
-      <!-- Modal -->
-      <div
-        class="modal fade"
-        id="exampleModalCenter"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Oops!</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body text-center">Produit non trouvé</div>
-            <div class="modal-footer">
-              <a href="{{ path('products') }}" ><button type="button" class="btn btn-success">RETOUR AUX PRODUITS</button></a>
-            </div>
-          </div>
-        </div>
-      </div>
+    </div>
+    <div class=" ml-auto h3 p-2">Nos produits</div>
+  </div>
 
-      {% endfor %}
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Filtrer vos produits</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center"> {{ form(form) }}</div>
+
+      </div>
     </div>
   </div>
 </div>
-<div class="container bouge">
+<div class="row product-container">
+  {% for product in products %}
+  <div class="col-md-3">
+    {% include 'product/single_product.html.twig' %}
+  </div>
+  {% else %}
+  <h2 class="text-center">Il n’y a pas de résultat pour cette recherche<br></h2>
+</div>
+ {% endfor %}
+<div class="container bouge mt-3">
   {{ knp_pagination_render(products, "pagination.html.twig") }}
 </div>
 

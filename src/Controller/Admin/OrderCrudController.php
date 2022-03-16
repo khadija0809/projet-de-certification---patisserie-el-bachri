@@ -91,13 +91,13 @@ class OrderCrudController extends AbstractCrudController
             IdField::new('id'),
             DateTimeField::new('createdAt', label:'Passée le'),
             TextField::new('user.fullName', label: 'Utilisateur'),
-            TextEditorField::new('delivery', 'Adresse de livraison')->onlyOnDetail(),
+            // TextEditorField::new('delivery', 'Adresse de livraison')->onlyOnDetail(),
             TextField::new('carrierName', label: 'Transporteur'),
-            MoneyField::new('total')->setCurrency('MAD'),
+            MoneyField::new('total', 'Total produit')->setCurrency('MAD'),
             MoneyField::new('carrierPrice', label:'Frais de port')->setCurrency('MAD'),
             ChoiceField::new('state')->setChoices([
                 'Non payée' => 0,
-                'Payée' => 1,
+                'Paiement validé' => 1,
                 'Préparation en cours' => 2,
                 'Livraison en cours' => 3
             ]),

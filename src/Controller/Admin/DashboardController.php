@@ -22,6 +22,7 @@ class DashboardController extends AbstractDashboardController
     public function index(): Response
     {
         return parent::index();
+        
     }
 
     public function configureDashboard(): Dashboard
@@ -34,10 +35,10 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Utilisateur', 'fa fa-user', User::class);
-        yield MenuItem::linkToCrud('Orders', 'fa fa-shopping-bag', Order::class);
+        yield MenuItem::linkToCrud('Commandes', 'fa fa-shopping-bag', Order::class);
         yield MenuItem::linkToCrud('Categories', 'fa fa-list', Category::class);
         yield MenuItem::linkToCrud('Produits', 'fab fa-product-hunt', Product::class);
-        yield MenuItem::linkToCrud('Carriers', 'fas fa-truck', Carrier::class);
+        yield MenuItem::linkToCrud('Transporteur', 'fas fa-truck', Carrier::class);
         yield MenuItem::linkToCrud('Headers', 'fas fa-desktop', Header::class);
 
 
