@@ -57,7 +57,10 @@ class ChangePasswordType extends AbstractType
                
             ])
             ->add('submit',SubmitType::class, [
-                'label' => "Mettre à jour"
+                'label' => "Mettre à jour mes modifications",
+                'attr' => [
+                    'class' => 'btn btn-secondary btn-sm'
+                ]
             ])
 
          ;

@@ -24,8 +24,6 @@ class ProductCrudController extends AbstractCrudController
     {
         return [
             TextField::new('name'),
-            //Field::new('imageFile')
-            //->setFormType(VichImageType::class),
             SlugField::new('slug')->setTargetFieldName('name'),
             ImageField::new('illustration')->setBasePath('/images/product')->setUploadDir('public/images/product')
             ->setUploadedFileNamePattern('[randomhash].[extension]')

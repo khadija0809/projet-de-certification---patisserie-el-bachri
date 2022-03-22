@@ -27,23 +27,24 @@ class ProductRepository extends ServiceEntityRepository
 
     public function findWithSearch (Search $search)
     {
-        $query = $this
-        ->createQueryBuilder('p')
-        -> select('c', 'p')
-        ->join('p.category', 'c');
+        $query = $this // on ouvr une variable qui s'appelle query et va mettre dedand pulsieurs method
+        ->createQueryBuilder('p') // on commence de créé un query et on fait la maping avec la table product representé par 'p'
+        -> select('c', 'p') // on a besoin dans cette query de selectionner 'c' category et 'p' product
+        ->join('p.category', 'c');// et on a besoin qu nous face une jointure entre les catégorie de mon produit et la table category 
 
-        if (!empty($search->categories)) {
-            $query = $query
-            ->andWhere('c.id IN (:categories)')
-            ->setParameter('categories', $search->categories);
+        if (!empty($search->categories)) { // on dit a notre repository c'est tu n'est pas vide je veux
+            $query = $query // que tu me prenne query
+            ->andWhere('c.id IN (:categories)') // et dedans tu me rajoute un andWhere ou j 
+            // besoin que les Id de mes category soit dans la liste categories que je t'envoie en parametre dans mon objet search
+            ->setParameter('categories', $search->categories);// je te donne ce parametre qui le nom category et sa valeur ce qu'il ya dans dans search categories
         }
-        if (!empty($search->string)) {
+        if (!empty($search->string)) {// si une recherche textuelle realisé avec notre utilisateur 
             $query = $query
-            ->andWhere('p.name LIke :string')
-            ->setParameter('string', "%{$search->string}%");
+            ->andWhere('p.name LIke :string')// est ce que sa ressemble a la recherche
+            ->setParameter('string', "%{$search->string}%");// le sting que ja passe au param equivaut search strin
         }
 
-        return $query->getQuery()->getResult();
+        return $query->getQuery()->getResult();// retourn moi la query qui tu execute
     }
 
     // /**

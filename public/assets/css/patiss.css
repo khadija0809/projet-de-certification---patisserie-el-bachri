@@ -48,9 +48,10 @@ main {
     font-size: 18px;
 }
 
-.cart-icon {
-    height: 20px;
-    padding-left: 20px;
+.cart {
+    height: 38px;
+    padding-left: 5px;
+    padding-bottom: 3px;
 }
 .bolch-small {
     max-width: 600px;
@@ -103,4 +104,10 @@ main {
 .account-item a:hover {
     color: #778ca3;
     text-decoration: none;
+}
+.cart-icon {
+    height: 50px;
+}
+.img-fluid {
+    height: 200px;
 }

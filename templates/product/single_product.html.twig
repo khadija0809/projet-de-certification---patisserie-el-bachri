@@ -1,11 +1,6 @@
 <div class="product-item text-center">
-  <a href="{{ path('product', { slug: product.slug }) }}"><img class="bd-placeholder-img rounded" src="/images/product/{{ product.illustration }}"
-      alt="{{ product.name }}" height="200px"/></a>
+  <a href="{{ path('product', { 'slug' : product.slug }) }}"><img src="/images/product/{{ product.illustration }}" alt="{{ product.name }}" class="img-fluid bd-placeholder-im rounded"></a>
   <h5>{{ product.name }}</h5>
   <span class="product-subtitle">{{ product.subtitle }}</span>
-  <span class="product-price">
-    {{ (product.price / 100)|number_format(2, ',', '.') }} dh</span>
-  {# <a href="{{ path('add_to_cart', {'id' : product.id }) }}" </a><img
-      src="{{ asset('assets/img/shopping-cart.png') }}" class="cart-icon" alt="Mon panier"> #}
-
+  <span class="product-price">{{ (product.price / 100)|number_format(2, ',', '.') }} dh</span>
 </div>

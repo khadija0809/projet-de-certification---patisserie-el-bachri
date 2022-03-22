@@ -71,7 +71,7 @@ class OrderController extends AbstractController
             $order->setCarrierName($carriers->getName());
             $order->setCarrierprice($carriers->getPrice());
             $order->setDelivery($delivery_content);
-            $order->setState(0);
+            $order->setState(1);
 
             $this->entityManager->persist($order);
 
