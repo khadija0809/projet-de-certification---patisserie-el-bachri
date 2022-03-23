@@ -106,8 +106,8 @@ main {
     text-decoration: none;
 }
 .cart-icon {
-    height: 50px;
+    height: 45px;
 }
-.img-fluid {
-    height: 200px;
-}
+/* .img-fluid {
+    height: 150px;
+} */
