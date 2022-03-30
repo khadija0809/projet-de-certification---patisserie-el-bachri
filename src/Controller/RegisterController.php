@@ -28,8 +28,8 @@ class RegisterController extends AbstractController
     #[Route('/register', name: 'register')]
     public function index(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher, MailerInterface $mailer): Response 
     {
-        $user = new User();
-        $form = $this->createForm(RegisterType::class, $user);
+        $user = new User();// instancier la classe user
+        $form = $this->createForm(RegisterType::class, $user);// instancier le form avec la methode createForm et qui prend deux paramètre la classe RegisterType et 
 
         $form->handleRequest($request);
 

@@ -24,7 +24,7 @@ class ContactController extends AbstractController
             $data = $form->getData();
             $email = (new Email())
             ->from($data['email'])
-            ->to('patisserieelbachri@gmail.com')
+            ->to('admin@patisserie-elbachri.com')
             //->cc('cc@example.com')
             //->bcc('bcc@example.com')
             //->replyTo('fabien@example.com')

@@ -92,7 +92,7 @@
     </header>
 
     <main  class="pb-4">
-        {% if block('carousel') is defined %}
+        {% if block('carousel') is defined %} <!--si le carousel est deifinit tu me l'affiche-->
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 {% for key,header in headers %}
@@ -105,7 +105,7 @@
                     style="background: url('/images/product/{{ header.illustration }}');background-size:cover;">
                     <div class="container">
                         <div class="carousel-caption text-left">
-                            <h1 class="text-dark">{{ header.title }}</h1>
+                            <h1 class="text-center text-dark">{{ header.title }}</h1>
                             {# <p class="text-dark">{{ header.content }}</p> #}
                             <p><a class="btn btn-lg btn-dark" href="{{ header.btnUrl }}" role="button">{{
                                     header.btnTitle }}</a></p>
@@ -127,11 +127,7 @@
         {% endif %}
 
 
-        <!-- Marketing messaging and featurettes
-    ================================================== -->
-        <!-- Wrap the rest of the page in another container to center all the content. -->
-
-        <div class="container marketing  {% if block('carousel') is not defined %}mt-5{% endif %}">
+        <div class="container marketing  {% if block('carousel') is not defined %}mt-5{% endif %}"> <!-- si le carousel n'est pas definie tu ajoute une margin top de 5 px -->
 
             {% block content %}
             {% endblock %}
