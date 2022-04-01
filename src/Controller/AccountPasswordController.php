@@ -25,13 +25,13 @@ class AccountPasswordController extends AbstractController
     {
         $notification = null;
 
-        $user =$this->getUser();
-        $form =$this->createForm(ChangePasswordType::class, $user);
+        $user = $this->getUser();//(recuper user connecté)appel objet utlisateur 
+        $form = $this->createForm(ChangePasswordType::class, $user);//appel mon formuliare et passer le ($user) recuperer
 
-        $form->handleRequest($request);
+        $form->handleRequest($request);//preparer le formulaire a ecouté la requete 
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $input_password = $form->get('old_password')->getData();
+        if ($form->isSubmitted() && $form->isValid()) { //si le formulaire est soumis et valid 
+            $input_password = $form->get('old_password')->getData();//on rappel le form et lui demande de recupéré l'encien mot de passe et choper la data de cette input
 
             if ($userPasswordHasher->isPasswordValid($user, $input_password)){
                 $new_password = $form->get('new_password')->getData();
@@ -49,8 +49,8 @@ class AccountPasswordController extends AbstractController
         }
 
         return $this->render('account/password.html.twig', [
-            'form' => $form->createView(),
-            'notification' => $notification
+            'form' => $form->createView(),//passer la vue a twig
+            'notification' => $notification // passer la variable notification a twig pour quelle l'afiche si elle est differente de null
         ]);
     }
 }

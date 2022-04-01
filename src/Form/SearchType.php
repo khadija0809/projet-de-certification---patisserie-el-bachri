@@ -19,7 +19,7 @@ class SearchType extends AbstractType
         $builder
         ->add('string',TextType::class, [
             'label' => false,
-            'required' => false,
+            'required' => false,//on peut just chercher des categorie
             'attr' => [
                 'placeholder' => 'Votre recherche ...',
                 'class' => 'form-control-sm'
@@ -27,7 +27,7 @@ class SearchType extends AbstractType
         ])
         ->add('categories', EntityType::class, [
             'label'=> false,
-            'required' => false,
+            'required' => false,//on peut just chercher avec notre input 
             'class' => Category::class,
             'multiple' => true,
             'expanded' => true
@@ -35,7 +35,7 @@ class SearchType extends AbstractType
         ->add('submit', SubmitType::class, [
             'label' => 'Filtrer',
             'attr' => [
-                'class' => 'btn-block btn-info'
+                'class' => 'btn-block btn-dark'
             ]
         ])
         ;
@@ -45,7 +45,7 @@ class SearchType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Search::class,
-            'method' => 'GET',
+            'method' => 'GET',//transit les donnés par url et de les partagé
             'csrf_protection' => false,
         ]);
     }

@@ -7,7 +7,7 @@
    
     {% if is_granted('ROLE_ADMIN') %}
     <h5 class="text-center">
-        Bienvenue {{ app.user.fullname }} dans votre compte.<br/>
+        Bienvenue {{ app.user.fullname }} dans votre compte.<br/> <!--var app nous permet d'acceder a l'entité user et recuperer le proprieté fullname -->
   </h5>
     <div class="row">
         <div class="col-md-6 ">
@@ -30,7 +30,7 @@
   <hr>
   <div class="row">
       <div class="col-md-4 ">
-          <div class="account-item text-center "  style="background:e ">
+          <div class="account-item text-center "  style="background:#e2ced2 ">
               <img src="{{ asset('assets/img/password.png') }}" alt="Modifier mon mot de passe"><br/>
               <a href="{{ path('account_password') }}">Modifier mon mot de passe</a>
           </div>

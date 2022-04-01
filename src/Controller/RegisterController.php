@@ -19,9 +19,9 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class RegisterController extends AbstractController
 {
-    private $entityManager;
+    private $entityManager; // insert le manager de doctrine
 
-    public function __construct(EntityManagerInterface $entityManager){
+    public function __construct(EntityManagerInterface $entityManager){// constrire la fonction contruit et inject l'EntityManagerInterfacge et le nom variable $entitymanader
         $this->entityManager = $entityManager;
     }
 
@@ -29,21 +29,22 @@ class RegisterController extends AbstractController
     public function index(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher, MailerInterface $mailer): Response 
     {
         $user = new User();// instancier la classe user
-        $form = $this->createForm(RegisterType::class, $user);// instancier le form avec la methode createForm et qui prend deux paramètre la classe RegisterType et 
+        $form = $this->createForm(RegisterType::class, $user);// instancier le form avec la methode createForm et qui prend deux paramètre la classe RegisterType et $user(les data a l'objet) 
 
-        $form->handleRequest($request);
+        $form->handleRequest($request);//permet de gérer le traitement de la saisie du formulaire
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) { //qui permet de savoir si le formulaire a été saisi et 
+                                                         // si de plus les règles de validations sont vérifiées ($form->isValid()) 
 
-                 $user->setPassword(
-                $userPasswordHasher->hashPassword(
+                   $user->setPassword(
+                   $userPasswordHasher->hashPassword(
                     $user,
                     $form->get('password')->getData()
                 )
             );
 
-            $this->entityManager->persist($user);
-            $this->entityManager->flush();
+            $this->entityManager->persist($user);// persist = fige la data car on a besoin de l'enregistré  
+            $this->entityManager->flush(); // execute la persistance (tu prend l'object que tu as persister et tu l'enregistre a bbd)
             
             // $email = (new TemplatedEmail())
             //     ->from($user->getEmail())
@@ -63,8 +64,8 @@ class RegisterController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
-        return $this->render('register/index.html.twig', [
-            'form' => $form->createView(),
+        return $this->render('register/index.html.twig', [ // passer le formulaire en variable a mon template 
+            'form' => $form->createView(), // creation de la vue
         ]);
        
     }

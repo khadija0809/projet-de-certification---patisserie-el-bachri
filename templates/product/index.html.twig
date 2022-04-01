@@ -1,12 +1,15 @@
-{% extends 'base.html.twig' %} {% block title %}Nos produits - Pâtisserie El
-bachri{% endblock %} {% block content %}
-<div class="row">
-  <script>
-    window.onload = function () {
-      document.getElementById("clickfiltre").onclick();
-    };
-  </script>
-  <div class="d-flex">
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos produits - Pâtisserie Elbachri{% endblock %} 
+
+{% block content %}
+ <div class="row">
+     <script>
+         window.onload = function () {
+         document.getElementById("clickfiltre").onclick();
+        };
+     </script>
+   <div class="d-flex">
     <div class="p-2">
       <button
         id="clickfiltre"
@@ -55,12 +58,15 @@ bachri{% endblock %} {% block content %}
   </div>
 </div>
 <div class="row product-container">
-  {% for product in products %}
+  {% for product in products %} <!--pour chaque produit que tu as dans products tu nous fait cette oprération  -->
   <div class="col-md-3">{% include 'product/single_product.html.twig' %}</div>
   {% else %}
-  <h2 class="text-center">
-    Il n’y a pas de résultat pour cette recherche<br />
-  </h2>
+  <div class="container bouge mt-3">
+    <strong> Il n’y a pas de résultat pour cette recherche </strong><br>
+     <img src="{{ asset('assets/img/page-non-trouvee.png') }}" alt="produit non trouvé" height="250px"/>
+    <a href="{{ path('products') }}" class="btn btn-dark btn mr-3 ">Voir nos produits</a>
+
+  </div>
 </div>
 {% endfor %}
 <div class="container bouge mt-3">

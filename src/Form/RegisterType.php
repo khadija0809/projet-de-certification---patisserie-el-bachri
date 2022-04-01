@@ -12,13 +12,14 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class RegisterType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('firstname',TextType::class, [
+        ->add('firstname',TextType::class, [ // ajouter le type d'input et je passe un tableau avec des valeurs
             'label' => 'Prénom',
             'constraints' => new Length([
                 'min'=> 2,
@@ -53,11 +54,17 @@ class RegisterType extends AbstractType
 
             ])
 
-        ->add('password', RepeatedType::class, [
+        ->add('password', RepeatedType::class, [ //permet de generer deux champs different qui doivent avoir le meme contenu 
             'type' => PasswordType::class,
             'invalid_message' => 'Le mot de passe et la confirmation doivent être identique.',
+            'constraints'=> [
+                new Regex([
+                    'pattern' =>"/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}$/",
+                    'message' => 'Renseignez au moins 1 majuscule, 1 minuscule et 1 chiffre'
+                ])
+            ],
             'label' => 'Mot de passe',
-            'required' => true,
+            'required' => true,//champs obligatoire
             'first_options' => [
                 'label' => 'Mot de passe',
                 'attr' => [
@@ -69,7 +76,9 @@ class RegisterType extends AbstractType
                 'attr' => [
                     'placeholder' => 'confirmez votre mot de passe.' 
                 ]
+               
             ]
+            
            
         ])
       
