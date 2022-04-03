@@ -74,11 +74,11 @@
                 <div class="navbar-item-custom">
                     {% if app.user %}
                     <p class="text-dark m-auto">
-                        <a  class="text-dark" href="{{ path('account')}}"> Mon compte <small>({{ app.user.firstname }})</small> </a> | <a class="text-dark" href="{{ path('app_logout')}}">Déconnexion</a>
+                        <a  class="text-dark text-decoration-none" href="{{ path('account')}}"> Mon compte <small>({{ app.user.firstname }})</small> </a> | <a class="text-dark text-decoration-none" href="{{ path('app_logout')}}">Déconnexion</a>
                     </p>
                     {% else %}
                     <div class="text-dark">
-                        <a class="text-dark" href="{{ path('app_login')}}">Connexion</a> | <a class="text-dark"
+                        <a class="text-dark text-decoration-none" href="{{ path('app_login')}}">Connexion</a> | <a class="text-dark text-decoration-none"
                             href="{{ path('register')}}">S'inscrire</a>
                     </div>
                     {% endif %}
@@ -159,22 +159,22 @@
                 <div class="dropdown-divider"></div>
 
                 <div>
-                    <p><i class="fa-brands fa-youtube"></i></p>
+                    <p><a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a></p>
                 </div>
 
                 <div>
-                    <p><i class="fa-brands fa-facebook"></i></p>
+                    <p><a href="https://www.facebook.com/login"><i class="fa-brands fa-facebook"></i></a></p>
                 </div>
                 <div>
 
-                    <i class="fa-brands fa-instagram"></i>
+                    <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
                 </div>
 
             </div>
         </div>
         <div class="text-center"> 
-        <p ><a class="mention"  href="{{ path('mentions_legales') }}">Mentions légales</a><br>
-            <a class="mention" href="{{ path('conditions_generales_de_vente') }}">Conditions générales de vente</a>
+        <p ><a class="text-dark "  href="{{ path('mentions_legales') }}">Mentions légales</a><br>
+            <a class="text-dark " href="{{ path('conditions_generales_de_vente') }}">Conditions générales de vente</a>
             </p>
     </div>
     </footer>

@@ -3,11 +3,12 @@
 namespace App\Classe;
 
 use App\Entity\Category;
-// créer des entités en fonction de ce qu'on veut présenter a notre utilisateur
+// classe search represente mon objet de recherche la recherche effectué par mon utilisateur 
 class Search
 {
     /**
-     * @var String
+     * @var String 
+     * pour la recherche textuelle
      */
     public $string = '';
 

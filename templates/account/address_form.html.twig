@@ -3,12 +3,13 @@
 {% block title %}Ajouter une adresses - pâtisserie el bachri{% endblock %}
 
 {% block content %}
-<h1>Gérer mes adresses </h1>
+<div class="container-fluid pb-1"  style="background:#e2ced2 ">
+<h1 class="text-center">Gérer mes adresses </h1>
 
-<a href="{{ path('account_address') }}">Retour</a>
+<a class="text-decoration-none"  href="{{ path('account_address') }}">Retour</a>
 <hr>
 {{ form_start(form) }}
-<div class="row">
+<div class="row"> <!-- -->
     <div class="col-md-12">{{ form_row(form.name) }}</div>
     <div class="col-md-6">{{ form_row(form.firstname) }}</div>
     <div class="col-md-6">{{ form_row(form.lastname) }}</div>
@@ -21,4 +22,5 @@
 </div>
     
 {{ form_end(form) }}
+ </div>
 {% endblock %}

@@ -49,7 +49,7 @@ class Cart
         return $this->session->set('cart', $cart);
     }
 
-    public function decrease($id)
+    public function decrease($id) // demunier 
     {
         $cart = $this->session->get('cart', []);
 

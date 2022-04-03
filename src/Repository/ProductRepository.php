@@ -32,19 +32,20 @@ class ProductRepository extends ServiceEntityRepository
         -> select('c', 'p') // on a besoin dans cette query de selectionner 'c' category et 'p' product
         ->join('p.category', 'c');// et on a besoin qu nous face une jointure entre les catégorie de mon produit et la table category 
 
-        if (!empty($search->categories)) { // on dit a notre repository c'est tu n'est pas vide je veux
+        if (!empty($search->categories)) { // si l'utilisateur renseingne des catégories a rechercher tu exuxte  
             $query = $query // que tu me prenne query
             ->andWhere('c.id IN (:categories)') // et dedans tu me rajoute un andWhere ou j 
             // besoin que les Id de mes category soit dans la liste categories que je t'envoie en parametre dans mon objet search
             ->setParameter('categories', $search->categories);// je te donne ce parametre qui le nom category et sa valeur ce qu'il ya dans dans search categories
         }
-        if (!empty($search->string)) {// si une recherche textuelle realisé avec notre utilisateur 
+        if (!empty($search->string)) {// si une recherche textuelle realisé par notre utilisateur 
             $query = $query
-            ->andWhere('p.name LIke :string')// est ce que sa ressemble a la recherche
-            ->setParameter('string', "%{$search->string}%");// le sting que ja passe au param equivaut search strin
+            ->andWhere('p.name LIke :string')// est ce que sa ressemble a la recherche que je t'envoie dans mon objet
+            ->setParameter('string', "%{$search->string}%");// le sting que ja passe au param equivaut search string
+                                                            //"%{$search->string}%"=> recherche partiel 
         }
 
-        return $query->getQuery()->getResult();// retourn moi la query qui tu execute
+        return $query->getQuery()->getResult();// retourn moi la query qui tu execute et tu me retourne le resultat
     }
 
     // /**

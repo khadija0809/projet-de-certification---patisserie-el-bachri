@@ -52,7 +52,7 @@
       </tbody>
     </table>
     <div class="text-right mb-5">
-        <strong>Nombre de produit :</strong>{{ cart|length}}<br/>
+        <strong>Nombre de produit :</strong>{{ cart|length}}<br/> <!-- compter le nombre de produits dans la panier -->
         <strong> Total de mon panier :</strong>{{ (total /100 ) | number_format(2, ',','.' ) }} dh
         <a href="{{ path('order') }}" class="btn btn-dark btn-block mt-3">Passer ma commande</a>
         <a href="{{ path('products') }}" class="btn btn-dark btn-block mt-3">Continuer mes achats </a>
@@ -61,8 +61,8 @@
   {% else %}
       <hr>
       <div class="text-center">
-         <img src="{{ asset('assets/img/empty-cart.png') }}" height="100px" alt="panier vide"><br><br>
-          <p>Votre panier est vide</p> 
+         <img src="{{ asset('assets/img/panier_vide.png') }}" height="200px" alt="panier vide"><br><br>
+          <strong><p class="text-warning">Votre panier est vide</p></strong> 
       </div>
      
 

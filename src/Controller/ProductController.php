@@ -26,12 +26,12 @@ class ProductController extends AbstractController
     public function index(Request $request, PaginatorInterface $paginator )
     {
 
-        $search = new Search();
+        $search = new Search();// instancier la classe search
         $form = $this->createForm(SearchType::class, $search);//appel le form avec la methodee createFom
 
-        $form->handleRequest($request);
+        $form->handleRequest($request);// methode qui demande au formuliare d'ecouter la requête
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) { // si le formulaire soumis et valide on rentre dedant
             $products = $this->entityManager->getRepository(Product::class)->findWithSearch($search);
         }else{
             $products = $this->entityManager->getRepository(Product::class)->findAll();// recuperer la repository en mettant le nom de la classe et lui demande de tout nous les chercher (findAll)

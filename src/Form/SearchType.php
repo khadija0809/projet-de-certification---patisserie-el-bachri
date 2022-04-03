@@ -28,7 +28,7 @@ class SearchType extends AbstractType
         ->add('categories', EntityType::class, [
             'label'=> false,
             'required' => false,//on peut just chercher avec notre input 
-            'class' => Category::class,
+            'class' => Category::class,//presise avec quel classe on fait la léai
             'multiple' => true,
             'expanded' => true
         ])
